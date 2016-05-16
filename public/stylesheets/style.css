@@ -1,0 +1,45 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.headerText{
+  	color: rgb(165,1,1);
+    /*border-color: rgb(165,1,1);
+    border-width: 20px;
+    display: inline;
+    border-style: solid;
+    background-color: rgb(165,1,1);*/
+font-size:40px;
+  	}
+	.greenButton{
+		color:white;
+		background-color:green;
+		border-radius: 5px;
+		height:75px;
+		width:200px;
+		border-style: none;
+		font-size: 20px;
+	}
+
+	.greenButton:hover{
+		background-color:#004600;
+	}
+
+	.redButton{
+		color:white;
+		background-color:rgb(165,1,1);
+		border-radius: 5px;
+		height:75px;
+		width:200px;
+		border-style: none;
+		font-size: 20px;
+	}
+
+	.redButton:hover{
+		background-color:red;
+	}
