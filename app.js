@@ -11,9 +11,9 @@ var app = express();
 
 var mongoose = require('mongoose');
 
-var MongoDbPassword=MONGOPWD;
-var MongoDbUserName=MONGOUSER;
-var MongoConnectionString=MONGOSTRING;
+var MongoDbPassword=process.env.MONGOPWD;
+var MongoDbUserName=process.env.MONGOUSER;
+var MongoConnectionString=process.env.MONGOSTRING;
 
 mongoose.connect('mongodb://'+  MongoDbUserName +':'+ MongoDbPassword + MongoConnectionString);
 require('./models/TeamMembers');
