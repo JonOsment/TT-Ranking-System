@@ -11,11 +11,11 @@ router.get('/:userId', function(req, res) {
 
     if(err){ return next(err); }
 
-    TeamMember.Count({Points: $gt: teamMembers.Points}, function(err, count){
-		teamMembers["Ranking"] = count;
+    TeamMember.count({Points: {$gt: teamMembers[0].Points}}, function(err, count){
+		teamMembers[0].set("Ranking", count, {strict : false});
     	res.json(teamMembers);
     });
-    
+
   });
 
 });
