@@ -20,6 +20,7 @@ require('./models/TeamMembers');
 require('./models/Games');
 var users = require('./routes/users');
 var games = require('./routes/games');
+var ranking = require('./routes/ranking');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -37,6 +38,8 @@ app.use(express.static(path.join(__dirname, 'images')));
 app.use('/', routes);
 app.use('/users', users);
 app.use('/games', games);
+app.use('/ranking', ranking);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -8,10 +8,16 @@ var TeamMember = mongoose.model('TeamMembers');
 router.get('/:userId', function(req, res) {
   //res.send("UserId: " + req.params.userId + " Not Found.");
   TeamMember.find({Badge: req.params.userId},function(err, teamMembers){
+
     if(err){ return next(err); }
 
-    res.json(teamMembers);
+    TeamMember.Count({Points: $gt: teamMembers.Points}, function(err, count){
+		teamMembers["Ranking"] = count;
+    	res.json(teamMembers);
+    });
+    
   });
+
 });
 
 module.exports = router;
