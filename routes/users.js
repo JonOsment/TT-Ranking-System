@@ -12,10 +12,28 @@ router.get('/:userId', function(req, res) {
     if(err){ return next(err); }
 
     TeamMember.count({Points: {$gt: teamMembers[0].Points}}, function(err, count){
-		teamMembers[0].set("Ranking", count, {strict : false});
-    	res.json(teamMembers);
+    teamMembers[0].set("Ranking", count, {strict : false});
+      res.json(teamMembers);
     });
 
+  });
+
+});
+
+router.post('/', function(req, res){
+
+  var bulk = TeamMember.collection.initializeUnorderedBulkOp();
+  var listOfTeamMembers = req.body;
+  
+  for (i = 0; i < listOfTeamMembers.length; i++) 
+  {
+      var user = listOfTeamMembers[i];
+      bulk.find({Email: user.Email}).upsert().update( {$set : {FirstName: user.FirstName, LastName: user.LastName, Badge: user.Badge} });
+  }
+
+  bulk.execute(function(err, doc){
+    if (err) return res.send(500, { error: err });
+    return res.send("succesfully saved");
   });
 
 });
