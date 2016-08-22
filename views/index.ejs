@@ -88,15 +88,17 @@ body {
 					});
 
 					$http.post("/games/", gameData).success(function(data) {
+						var CongratulationsString = "";
 						for (x in data.gameData.Players){
 							var player = data.gameData.Players[x];
 							for (y in data.teamMembers){
 								var teamMember = data.teamMembers[y];
 								if(player.TeamMemberId == teamMember._id && player.Win){
-								 	alert("Congratulations, "+ teamMember.FirstName + "! You Win!");
+								 	CongratulationsString += "Congratulations, "+ teamMember.FirstName + "! You Win!";
 								 }
 							}
 						}
+						alert(CongratulationsString);
 						$scope.usersInGame = data.teamMembers;
 						$scope.winners = 0;
 					});	
