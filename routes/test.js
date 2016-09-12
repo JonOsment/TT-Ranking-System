@@ -5,6 +5,6 @@ var mongoose = require('mongoose');
 var TeamMember = mongoose.model('TeamMembers');
 
 /* GET users listing. */
-router.get('/', function(req, res) { console.log(req.body); });
+router.post('/', function(req, res) { console.log(req.body); });
 
 module.exports = router;
