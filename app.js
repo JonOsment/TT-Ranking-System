@@ -21,7 +21,7 @@ require('./models/Games');
 var users = require('./routes/users');
 var games = require('./routes/games');
 var ranking = require('./routes/ranking');
-var test = require('./routes/test');
+var testroute = require('./routes/test');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -40,7 +40,7 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/games', games);
 app.use('/ranking', ranking);
-app.use('/test', test);
+app.use('/test', testroute);
 
 
 // catch 404 and forward to error handler
