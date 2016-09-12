@@ -6,3 +6,5 @@ var TeamMember = mongoose.model('TeamMembers');
 
 /* GET users listing. */
 router.get('/', function(req, res) { console.log(req); });
+
+module.exports = router;
